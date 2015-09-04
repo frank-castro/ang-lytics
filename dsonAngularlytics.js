@@ -1,8 +1,8 @@
 
 /*
 Use :
-pageview :  trackerservice.sendupcall("view",false,"","");
-event  :  trackerservice.sendupcall("view",true,"buttonn_click","profile_section");
+pageview :  trackerservice.sendupcall("name_of_view",false,"","");
+event  : trackerservice.sendupcall("name_of_view",true,"name_of_event_action","name_of_event_category");
 Read more here : Google analytics: https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
 */
 
