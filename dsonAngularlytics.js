@@ -9,7 +9,7 @@ Read more here : Google analytics: https://developers.google.com/analytics/devgu
 (function(){
     'use strict';
     angular.module('myApp.core')
-    .service('trackerservice',['$http',,trackerservice]);
+    .service('trackerservice',['$http',trackerservice]);
 
         function trackerservice($http){
             /*  appglobals could be provided as a factory as well, supply these parameters however you wish */
