@@ -1,6 +1,6 @@
 <p>
 	Custom angular service to send up google analytics pageview or events.
-	Works on web , mobile we  and cordova .
+	Works on web , mobile web  and cordova .
 </p>
 
 <pre>
