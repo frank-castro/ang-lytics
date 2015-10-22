@@ -85,6 +85,7 @@ Read more here : Google analytics: https://developers.google.com/analytics/devgu
     .service('trackerSvc',['$http','metaSVC',trackerSvc]);
 
     function trackerSvc($http,metaSVC){
+        
         /**********************************************************************************************
         *
         * Be sure to chagne the data below to appropriate data from Google Analytics Dashboard
