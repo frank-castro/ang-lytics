@@ -1,0 +1,19 @@
+<html ng-app="myApp">
+	<head>
+		<title>Angular-lytics example</title>
+	</head>
+	<body ng-controller="myCtrl">
+		<div style="margin:auto;text-align:center;">
+			<button ng-click="makeCall(false)">Trigger view call</button>
+			<button ng-click="makeCall(true)">Trigger event call</button>
+			<p>
+				Inspect your network data after each button press and should be able to see
+				the posted data.
+			</p>
+		</div>
+		
+		<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script type="text/javascript" src="ang-lytics-core.min.js"></script>
+		<script type="text/javascript" src="myCtrl.js"></script>
+	</body>
+</html>

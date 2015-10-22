@@ -4,11 +4,11 @@
 </p>
 
 <pre>
-	pageview : trackerservice.sendupcall("name_of_view",false,"","");
+	pageview : trackerSvc.sendupcall("name_of_view",false,"","");
 </pre>
 
 <pre>
-	event  : trackerservice.sendupcall("name_of_view",true,"name_of_event_action","name_of_event_category");
+	event  : trackerSvc.sendupcall("name_of_view",true,"name_of_event_action","name_of_event_category");
 </pre>
 
 Be sure to place your info  here :
