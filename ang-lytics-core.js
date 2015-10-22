@@ -1,86 +1,87 @@
-/**
-*
-*Root module
-*/
-angular.module('ang.core.module',[]);                       
-
-/**
-*
-*Service to set u meta data to attach to analytics post data
-*/
-angular.module('ang.core.module').service('metaSVC',metaservice);
-
-function metaservice(){
-    var _client_id =  null;
-    
-    /**
-    *
-    *Generate GUID 
-    */
-     this.getClientId = function(){
-        try{
-            if(!!_client_id){                                                                      //check for null or undefined
-                return _client_id;
-            }
-            _client_id = generateClientId();
-        }
-        catch(err){ console.log(err); }
-        return _client_id; 
-    }
-
-    /**
-    *
-    *Generate GUID 
-    */
-    function generateClientId(){
-        _client_id = generateDate() +"-"+ generateGUID();                                     //Piece together our unique id for this device
-        return _client_id;
-    }
-
-    /**
-    *
-    *Generate GUID 
-    */
-    function generateGUID(){
-        var GUID = (gen4Set()  + gen4Set() + "-" + gen4Set() + "-4"  + gen4Set().substr(0,3) + "-" + gen4Set() + "-" + gen4Set()  + gen4Set() + gen4Set()).toLowerCase();
-        return GUID;
-    }
-
-    /**
-    *
-    *Generate GUID 
-    */
-    function gen4Set(){
-        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);                       //0x10000 hex version of 65536
-    }
-
-    /**
-    *
-    *Generate GUID 
-    */
-    function generateDate(){
-        var currentTime = Date.now() || +new Date();                                            //use Date.now()  so we don't create an unecessary date object.
-        return currentTime;
-    }
-
-    /**
-    *
-    *Generate a random integer 
-    */
-    this.getRandomInt = function(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-}
-
-/*
-Use :
-pageview :  trackerSvc.sendupcall("name_of_view",false,"","");
-event  : trackerSvc.sendupcall("name_of_view",true,"name_of_event_action","name_of_event_category");
-Read more here : Google analytics: https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
-*/
-
 (function(){
     'use strict';
+
+    /**
+    *
+    *Root module
+    */
+    angular.module('ang.core.module',[]);                       
+
+    /**
+    *
+    *Service to set u meta data to attach to analytics post data
+    */
+    angular.module('ang.core.module').service('metaSVC',metaservice);
+
+    function metaservice(){
+        var _client_id =  null;
+        
+        /**
+        *
+        *Generate GUID 
+        */
+         this.getClientId = function(){
+            try{
+                if(!!_client_id){                                                                      //check for null or undefined
+                    return _client_id;
+                }
+                _client_id = generateClientId();
+            }
+            catch(err){ console.log(err); }
+            return _client_id; 
+        }
+
+        /**
+        *
+        *Generate GUID 
+        */
+        function generateClientId(){
+            _client_id = generateDate() +"-"+ generateGUID();                                     //Piece together our unique id for this device
+            return _client_id;
+        }
+
+        /**
+        *
+        *Generate GUID 
+        */
+        function generateGUID(){
+            var GUID = (gen4Set()  + gen4Set() + "-" + gen4Set() + "-4"  + gen4Set().substr(0,3) + "-" + gen4Set() + "-" + gen4Set()  + gen4Set() + gen4Set()).toLowerCase();
+            return GUID;
+        }
+
+        /**
+        *
+        *Generate GUID 
+        */
+        function gen4Set(){
+            return (((1+Math.random())*0x10000)|0).toString(16).substring(1);                       //0x10000 hex version of 65536
+        }
+
+        /**
+        *
+        *Generate GUID 
+        */
+        function generateDate(){
+            var currentTime = Date.now() || +new Date();                                            //use Date.now()  so we don't create an unecessary date object.
+            return currentTime;
+        }
+
+        /**
+        *
+        *Generate a random integer 
+        */
+        this.getRandomInt = function(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    }
+
+    /*
+    Use :
+    pageview :  trackerSvc.sendupcall("name_of_view",false,"","");
+    event  : trackerSvc.sendupcall("name_of_view",true,"name_of_event_action","name_of_event_category");
+    Read more here : Google analytics: https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+    */
+
     angular.module('ang.core.module')
     .service('trackerSvc',['$http','metaSVC',trackerSvc]);
 
